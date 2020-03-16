@@ -1,0 +1,12 @@
+﻿@model ComicSharedModels.ComicModel
+
+    <div>
+        <h2>@Html.DisplayFor(model => model.Safe_title)</h2>
+        <hr />
+        <div class="row">
+            <div class="figure">
+                <img src=@Model.Img>
+            </div>
+            <h4 class="title">@Html.DisplayFor(model => model.Alt)</h4>
+        </div>
+    </div>
