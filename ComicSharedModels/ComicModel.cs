@@ -15,8 +15,8 @@ namespace ComicSharedModels
         public string Safe_title { get; set; }
         public string Transcript { get; set; }
         public string Alt { get; set; }
-        public int Img { get; set; }
-        public int Title { get; set; }
+        public string Img { get; set; }
+        public string Title { get; set; }
         public int Day { get; set; }
     }
 }
