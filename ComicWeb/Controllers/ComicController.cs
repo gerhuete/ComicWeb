@@ -12,6 +12,7 @@ using ComicSharedModels;
 
 namespace ComicWeb.Controllers
 {
+
     public class ComicController : Controller
     {
         private readonly ILogger<ComicController> _logger;
@@ -25,10 +26,23 @@ namespace ComicWeb.Controllers
             _comicClient = comicFactory;
         }
 
+        [Route("")]
+        [Route("Home")]
+        [Route("Home/Index")]
+        [Route("Comic")]
+        [Route("Comic/Index")]
         public IActionResult Index()
         {
             ComicModel comic = new ComicModel();
             comic = _comicClient.GetMostRecentComicAsync().Result;
+            return View(comic);
+        }
+
+        [HttpGet("/Comic/{id}", Name = "Comic")]
+        public IActionResult Index(int id)
+        {
+            ComicModel comic = new ComicModel();
+            comic = _comicClient.GetComicByNumAsync(id).Result;
             return View(comic);
         }
 

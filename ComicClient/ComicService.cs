@@ -26,5 +26,43 @@ namespace ComicClient
             var data = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<ComicModel>(data);
         }
+        public async Task<ComicModel> GetComicByNumAsync(int num)
+        {
+            try
+            {
+                var uri = new Uri(_configuration.GetValue<string>("ComicApiURL") + num.ToString() + "/info.0.json");
+                var response = await _httpClient.GetAsync(uri, HttpCompletionOption.ResponseHeadersRead);
+                response.EnsureSuccessStatusCode();
+                var data = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<ComicModel>(data);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<ComicModel> GetPreviousComicByNumAsync(int num)
+        {
+            var prevNum = num - 1;
+            ComicModel comic = new ComicModel();
+            comic = GetComicByNumAsync(prevNum).Result;
+            if (comic==null) {
+                comic = await GetComicByNumAsync(num);
+            }
+            return comic;
+        }
+
+        public async Task<ComicModel> GetNextComicByNumAsync(int num)
+        {
+            var nextNum = num + 1;
+            ComicModel comic = new ComicModel();
+            comic = GetComicByNumAsync(nextNum).Result;
+            if (comic == null)
+            {
+                comic = await GetComicByNumAsync(num);
+            }
+            return comic;
+        }
     }
 }
