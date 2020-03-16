@@ -4,8 +4,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ComicWeb</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/wizardTheme/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/wizardTheme/demo.css" />
+    <link rel="stylesheet" href="~/css/wizardTheme/paper-bootstrap-wizard.css" />
+    <link rel="stylesheet" href="~/css/wizardTheme/themify-icons-demo.css" />
+    <link rel="stylesheet" href="~/css/wizardTheme/themify-icons.css" />
+    <style type="text/css">
+        @@font-face {
+            font-family: 'themify';
+            src: url("/fonts/themify.eot"),
+                 url("/fonts/themify.woff") format('woff'),
+        }
+
+        .classname {
+            font-family: 'themify';
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,12 +32,16 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - ComicWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2020 - ComicWeb
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/wizardTheme/jquery-2.2.4.min.js"></script>
+    <script src="~/js/wizardTheme/jquery.bootstrap.wizard.js"></script>
+    <script src="~/js/wizardTheme/jquery.validate.min.js"></script>
+    <script src="~/js/wizardTheme/paper-bootstrap-wizard.js"></script>
+    <script src="~/js/wizardTheme/bootstrap.min.js"></script>
+    <script src="~/js/wizardTheme/demo.js"></script>
+    <script src="~/js/site.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
